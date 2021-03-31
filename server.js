@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("./models");
 const path = require("path");
+const express = require("express");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -18,9 +19,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness-tracker
     useFindAndModify: false,
 });
 
-
-app.use(require("./routes/api.js"))
-app.use(require("./routes/html.js"))
 
 require("./routes/exerciseroutes.js")(app);
 require("./routes/htmlroutes.js")(app);
