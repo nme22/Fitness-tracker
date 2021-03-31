@@ -1,5 +1,5 @@
 const Workout = require("./workout");
 
-model.exports = {
+module.exports = {
     Workout
 };
