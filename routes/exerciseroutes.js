@@ -3,6 +3,7 @@ const db = require("../models");
 const Workout = db.Workout
 
 module.exports = function (app) {
+
     app.get("/api/workouts", function (req, res) {
         Workout.find({}).then(data => {
                 res.json(data)
