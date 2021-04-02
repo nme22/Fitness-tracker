@@ -14,7 +14,7 @@ module.exports = function (app) {
     })
     app.put("/api/workouts/:id", function (req, res) {
         console.log(" PARAMS ID", req.params.id)
-        Workout.findOne({
+       /*  Workout.findOne({
             _id: req.params.id
         }, function (err, workout) {
             console.log("Workout object -->", workout)
@@ -26,7 +26,18 @@ module.exports = function (app) {
                 if (err) throw err
                 res.json(data)
             })
+        }) */
+
+        Workout.updateOne({_id: req.params.id}, workout, (err, data)=> {
+                console.log('UPDATE response => ',data)
+                if(err) {
+                    console.log(err)
+                } 
+                
+                res.json(data)
         })
+      
+      
     });
 
     app.post("/api/workouts", function (req, res) {

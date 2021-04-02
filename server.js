@@ -13,6 +13,7 @@ app.use(express.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness-tracker", {
+    
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
