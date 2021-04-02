@@ -3,9 +3,13 @@ const db = require("../models");
 const Workout = db.Workout
 
 module.exports = function (app) {
+    app.get('/api/test', (req, res) => {
+        res.send('<h1>You have hit the server</h1>')
+    })
 
     app.get("/api/workouts", function (req, res) {
         Workout.find({}).then(data => {
+
                 res.json(data)
             })
             .catch(err => {
